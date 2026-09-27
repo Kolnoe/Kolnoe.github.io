@@ -56,12 +56,23 @@
 </head>
 <script>
 function enterSite() {
-  document.getElementById("welcome").style.opacity = "0";
-  document.getElementById("welcome").style.transition = "opacity 0.8s ease";
+  const password = document.getElementById("sitePassword").value;
 
-  setTimeout(function() {
-    document.getElementById("welcome").style.display = "none";
-  }, 800);
+  if (password === "409") {
+
+    document.getElementById("welcome").style.opacity = "0";
+    document.getElementById("welcome").style.transition = "opacity 0.8s ease";
+
+    setTimeout(function() {
+      document.getElementById("welcome").style.display = "none";
+    }, 800);
+
+  } else {
+
+    document.getElementById("passwordError").textContent =
+      "Wrong password.";
+
+  }
 }
 </script>
 <body>
