@@ -139,3 +139,86 @@ footer { border-top: 1px solid #c9c8c3; margin-top: 40px; padding: 28px 5vw; dis
   color: rgba(255,255,255,0.6);
   margin-top: 15px;
 }
+/* ===== 欢迎页：黑色星尘 ===== */
+
+#welcome {
+  background: #000 !important;
+  overflow: hidden;
+}
+
+/* 稀疏星尘 */
+#welcome::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.75) 0.7px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.45) 0.8px, transparent 1px),
+    radial-gradient(circle, rgba(255,255,255,0.25) 0.6px, transparent 1px);
+
+  background-size:
+    150px 150px,
+    230px 230px,
+    310px 310px;
+
+  background-position:
+    20px 40px,
+    90px 120px,
+    160px 30px;
+
+  opacity: 0.42;
+
+  animation: starsMove 45s linear infinite;
+}
+
+/* 模糊的远处光 */
+#welcome::after {
+  content: "";
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  left: 15%;
+  top: 20%;
+
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.055) 0%,
+    rgba(255,255,255,0.02) 35%,
+    transparent 70%
+  );
+
+  filter: blur(25px);
+
+  animation: lightMove 18s ease-in-out infinite alternate;
+}
+
+/* 星尘缓慢移动 */
+@keyframes starsMove {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(70px, 45px);
+  }
+}
+
+/* 光点漂移 */
+@keyframes lightMove {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(180px, 100px) scale(1.4);
+  }
+}
+
+/* 内容永远在粒子上面 */
+#welcome .welcome-box {
+  position: relative;
+  z-index: 2;
+}
