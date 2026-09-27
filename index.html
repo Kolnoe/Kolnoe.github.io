@@ -2,6 +2,93 @@
 <html lang="zh-CN">
 <style>
 #welcome {
+  background: #000 !important;
+  overflow: hidden;
+  position: fixed;
+  inset: 0;
+}
+
+/* 稀疏星尘 */
+#welcome::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,0.5) 0.8px, transparent 1.3px),
+    radial-gradient(circle, rgba(255,255,255,0.3) 0.7px, transparent 1.2px);
+
+  background-size:
+    120px 120px,
+    190px 190px,
+    280px 280px;
+
+  background-position:
+    20px 30px,
+    80px 100px,
+    150px 40px;
+
+  animation: starMove 35s linear infinite;
+  opacity: 0.6;
+
+  z-index: 0;
+}
+
+/* 很淡的宇宙光晕 */
+#welcome::after {
+  content: "";
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  left: 50%;
+  top: 45%;
+
+  transform: translate(-50%, -50%);
+
+  background: radial-gradient(
+    circle,
+    rgba(255,255,255,0.07) 0%,
+    rgba(255,255,255,0.025) 25%,
+    transparent 70%
+  );
+
+  filter: blur(30px);
+
+  animation: glowMove 12s ease-in-out infinite alternate;
+
+  z-index: 0;
+}
+
+#welcome .welcome-box {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes starMove {
+  from {
+    transform: translate(0, 0);
+  }
+
+  to {
+    transform: translate(90px, 60px);
+  }
+}
+
+@keyframes glowMove {
+  from {
+    transform: translate(-50%, -50%) scale(0.8);
+    opacity: 0.4;
+  }
+
+  to {
+    transform: translate(-20%, -60%) scale(1.3);
+    opacity: 0.9;
+  }
+}
+#welcome {
   position: fixed;
   inset: 0;
   z-index: 9999;
