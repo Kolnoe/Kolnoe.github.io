@@ -116,3 +116,26 @@ footer { border-top: 1px solid #c9c8c3; margin-top: 40px; padding: 28px 5vw; dis
   .travel-list em { grid-column: 2; }
   footer { flex-direction: column; gap: 8px; }
 }
+#sitePassword {
+  display: block;
+  width: 180px;
+  margin: 0 auto 15px;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  color: white;
+  text-align: center;
+  outline: none;
+  letter-spacing: 3px;
+}
+
+#sitePassword::placeholder {
+  color: rgba(255,255,255,0.4);
+}
+
+#passwordError {
+  font-size: 11px;
+  color: rgba(255,255,255,0.6);
+  margin-top: 15px;
+}
