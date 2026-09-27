@@ -1,5 +1,52 @@
 <!doctype html>
 <html lang="zh-CN">
+<style>
+#welcome {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(10, 10, 10, 0.96);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+.welcome-box {
+  width: 80%;
+  max-width: 500px;
+}
+
+.welcome-box h1 {
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 8px;
+  margin-bottom: 20px;
+}
+
+.welcome-box p {
+  font-size: 14px;
+  opacity: 0.6;
+  margin-bottom: 40px;
+}
+
+.welcome-box button {
+  background: none;
+  color: white;
+  border: 1px solid rgba(255,255,255,0.5);
+  padding: 12px 35px;
+  font-size: 12px;
+  letter-spacing: 4px;
+  cursor: pointer;
+}
+
+.welcome-box button:hover {
+  background: white;
+  color: black;
+}
+</style>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,7 +54,24 @@
   <meta name="description" content="欢迎来到qz的秘密基地。">
   <link rel="stylesheet" href="style.css">
 </head>
+<script>
+function enterSite() {
+  document.getElementById("welcome").style.opacity = "0";
+  document.getElementById("welcome").style.transition = "opacity 0.8s ease";
+
+  setTimeout(function() {
+    document.getElementById("welcome").style.display = "none";
+  }, 800);
+}
+</script>
 <body>
+  <div id="welcome">
+  <div class="welcome-box">
+    <h1>CHYIZENN</h1>
+    <p>让我们一起在宇宙中漂流</p>
+    <button onclick="enterSite()">确认</button>
+  </div>
+</div>
   <header class="topbar">
     <a class="logo" href="#">chyizenn</a>
     <nav>
